@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import Home from "./pages/home/Home";
+import "./assets/style/main.css";
 
+import Home from "./pages/home/Home";
 // Importez vos composants ici (Home, SignIn, User, SignUp)
 import Navbar from "./composants/NavBar/NavBar";
 import Footer from "./composants/Footer/Footer";
