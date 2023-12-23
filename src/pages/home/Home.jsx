@@ -1,11 +1,9 @@
-// import SignIn from "../../composants/connexion/connexion";
-import Hero from "../../composants/hero/Hero";
-import Feature from "../../composants/Feature/Feature";
-import Chat from "../../assets/img/icon-chat.png";
-import Money from "../../assets/img/icon-chat.png";
-import Security from "../../assets/img/icon-security.png";
-
-import "./../../assets/style/main.css";
+import Hero from "../../components/Hero/Hero";
+import FeatureItem from "../../components/FeatureItem/FeatureItem";
+import Chat from "../../assets/img/icon-chat.webp";
+import Money from "../../assets/img/icon-money.webp";
+import Security from "../../assets/img/icon-security.webp";
+import "../../assets/style/main.css";
 
 export default function Home() {
   return (
@@ -13,19 +11,19 @@ export default function Home() {
       <Hero />
       <section className="features">
         <h2 className="sr-only">Features</h2>
-        <Feature
+        <FeatureItem
           logo={Chat}
           altText="Chat-Icon"
           title="You are our #1 priority"
           description="Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes."
         />
-        <Feature
+        <FeatureItem
           logo={Money}
           altText="Money"
           title="More savings means higher rates"
           description="The more you save with us, the higher your interest rate will be!"
         />
-        <Feature
+        <FeatureItem
           logo={Security}
           altText="Security"
           title="Security you can trust"

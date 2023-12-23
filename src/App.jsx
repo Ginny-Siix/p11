@@ -1,26 +1,17 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
+import SignIn from "./pages/SignIn/SignIn";
+import User from "./pages/User/User";
 import "./assets/style/main.css";
 
-// Importez vos composants ici (Home, SignIn, User, SignUp)
-import Home from "./pages/home/Home";
-import User from "./pages/user/user";
-import Navbar from "./composants/NavBar/NavBar";
-import Footer from "./composants/Footer/Footer";
-import SignIn from "../src/composants/connexion/connexion";
-
 export default function App() {
-  const token = useSelector((store) => store.user.token);
+  const token = useSelector((state) => state.userAuth.token);
   return (
     <div>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />

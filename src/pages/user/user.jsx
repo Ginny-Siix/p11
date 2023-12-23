@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import userSlice from "/src/redux/reducers/userReducers.jsx";
-
-import Account from "../../composants/accounts/accounts";
-import EditButton from "../../composants/bouton/bouton";
+import { setGetProfile } from "../../redux/reducers/profileSlice";
+import Account from "../../components/Account/Account";
+import EditButton from "../../components/EditButton/EditButton";
+import "../../assets/style/main.css";
 
 export default function User() {
   const token = useSelector((state) => state.userAuth.token);
