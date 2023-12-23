@@ -9,8 +9,9 @@ import { useSelector } from "react-redux";
 
 import "./assets/style/main.css";
 
-import Home from "./pages/home/Home";
 // Importez vos composants ici (Home, SignIn, User, SignUp)
+import Home from "./pages/home/Home";
+import User from "./pages/user/user";
 import Navbar from "./composants/NavBar/NavBar";
 import Footer from "./composants/Footer/Footer";
 import SignIn from "../src/composants/connexion/connexion";
@@ -25,8 +26,7 @@ export default function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route
           path="/user"
-          // Changer Home avec ta page User
-          element={token ? <Home /> : <Navigate to="/sign-in" />}
+          element={token ? <User /> : <Navigate to="/sign-in" />}
         />
         <Route path="*" element={<Home />} />
       </Routes>

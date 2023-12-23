@@ -11,38 +11,6 @@ const initialState = {
   isLoggedIn: false,
 };
 
-// const userReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case "LOGIN":
-//       return {
-//         ...state,
-//         username: action.payload.username,
-//         isLoggedIn: true,
-//       };
-//     case "LOGOUT":
-//       return {
-//         ...state,
-//         username: "",
-//         isLoggedIn: false,
-//       };
-//     // Autres cas ici si nécessaire
-//     default:
-//       return state;
-//   }
-// };
-// // userActions.js
-
-// export const login = (username) => ({
-//   type: "LOGIN",
-//   payload: { username },
-// });
-
-// export const logout = () => ({
-//   type: "LOGOUT",
-// });
-
-// export default userReducer;
-
 const userSlice = createSlice({
   name: "user",
   initialState,

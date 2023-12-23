@@ -1,21 +1,7 @@
-import React from "react";
-import "../../assets/style/main.css";
-
-function Button(props) {
-  // Render a button element with the provided props
-  // - onClick: Click event handler function
-  // - className: CSS class for styling
-  // - disabled: Flag to disable the button
-  // - buttonText: Text content of the button
+export default function Button({ className, type, onClick, children }) {
   return (
-    <button
-      onClick={props.handleClick}
-      className={props.className}
-      disabled={props.disabled}
-    >
-      {props.buttonText}
+    <button className={className} type={type} onClick={onClick}>
+      {children}
     </button>
   );
 }
-
-export default Button;

@@ -15,6 +15,9 @@ export default function SignIn() {
     e.preventDefault();
     // Effectuer les actions nécessaires, par exemple, envoyer les données au serveur
     console.log("Login submitted:", { email, password, rememberMe: checkBox });
+
+    // Rediriger vers la page utilisateur après la connexion réussie
+    history.push("/user");
   };
 
   return (
@@ -33,7 +36,6 @@ export default function SignIn() {
             value={email} // La valeur du champ est liée à l'état 'email'
             onChange={(e) => setEmail(e.target.value)} // Met à jour l'état 'email' lorsqu'il y a un changement dans le champ
           />
-
           {/* Champ pour le mot de passe */}
           <TextInput
             className="input-wrapper"
@@ -44,7 +46,6 @@ export default function SignIn() {
             value={password} // La valeur du champ est liée à l'état 'password'
             onChange={(e) => setPassword(e.target.value)} // Met à jour l'état 'password' lorsqu'il y a un changement dans le champ
           />
-
           {/* Checkbox pour "Remember me" */}
           <TextInput
             className="input-remember"
@@ -54,11 +55,10 @@ export default function SignIn() {
             checked={checkBox} // La valeur de la checkbox est liée à l'état 'checkBox'
             onChange={() => setCheckBox(!checkBox)} // Met à jour l'état 'checkBox' lorsqu'il y a un changement dans la checkbox
           />
-
           {/* Bouton de soumission du formulaire */}
           <Button className="sign-in-button" type="submit">
             Sign In
-          </Button>
+          </Button>{" "}
         </form>
       </section>
     </main>
