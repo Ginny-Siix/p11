@@ -5,12 +5,11 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import User from "./pages/User/User";
-import "./assets/style/main.css";
 
 export default function App() {
   const token = useSelector((state) => state.userAuth.token);
   return (
-    <div>
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,6 +21,6 @@ export default function App() {
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }

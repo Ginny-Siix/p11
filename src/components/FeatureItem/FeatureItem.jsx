@@ -1,5 +1,3 @@
-import "../../assets/style/main.css";
-
 export default function FeatureItem({ logo, altText, title, description }) {
   return (
     <article className="feature-item">

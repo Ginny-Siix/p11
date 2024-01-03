@@ -1,5 +1,3 @@
-import "../../assets/style/main.css";
-
 export default function TextInput({
   className,
   id,

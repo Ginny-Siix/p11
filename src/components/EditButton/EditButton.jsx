@@ -1,15 +1,12 @@
-import "../../assets/style/main.css";
-
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setEditProfile } from "../../redux/reducers/profileSlice";
 import TextInput from "../TextInput/Textinput";
 import Button from "../Button/Button";
 
-export default function EditButton() {
+export default function EditButton({ isEditing, setIsEditing }) {
   const token = useSelector((state) => state.userAuth.token);
   const profile = useSelector((state) => state.profile);
-  const [isEditing, setIsEditing] = useState(false);
   const [newUserName, setNewUserName] = useState(profile.userName);
   const [error, setError] = useState("");
 

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLogOut } from "../../redux/reducers/userAuthSlice";
 import { resetProfile } from "../../redux/reducers/profileSlice";
 import logo from "../../assets/img/argentBankLogo.png";
-import "../../assets/style/main.css";
 
 export default function Header() {
   const token = useSelector((state) => state.userAuth.token);

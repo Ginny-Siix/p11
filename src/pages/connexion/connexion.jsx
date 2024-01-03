@@ -1,7 +1,6 @@
 // pages/signinPage/SigninPage.jsx
 import React, { useState } from "react";
 import { TextInput, Button } from "votre-bibliothèque-de-composants"; // Assurez-vous d'importer les composants nécessaires
-import "../../assets/style/main.css";
 
 export default function SignIn() {
   // États pour les champs du formulaire

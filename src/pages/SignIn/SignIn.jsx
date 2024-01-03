@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "../../assets/style/main.css";
 
 import { setLogIn } from "../../redux/reducers/userAuthSlice";
 import TextInput from "../../components/TextInput/Textinput";

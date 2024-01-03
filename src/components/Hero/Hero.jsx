@@ -1,5 +1,3 @@
-import "../../assets/style/main.css";
-
 export default function Hero() {
   return (
     <div>

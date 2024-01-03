@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setGetProfile } from "../../redux/reducers/profileSlice";
 import Account from "../../components/Account/Account";
 import EditButton from "../../components/EditButton/EditButton";
-import "../../assets/style/main.css";
 
 export default function User() {
   const token = useSelector((state) => state.userAuth.token);
   const profile = useSelector((state) => state.profile);
+  const [isEditing, setIsEditing] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -33,14 +33,14 @@ export default function User() {
   }, [token]);
 
   return (
-    <main className="main bg-dark">
+    <main className={`main ${isEditing ? "" : "bg-dark"}`}>
       <div className="header">
         <h1>
           Welcome back
           <br />
           {profile.firstName + " " + profile.lastName + "!"}
         </h1>
-        <EditButton />
+        <EditButton isEditing={isEditing} setIsEditing={setIsEditing} />
       </div>
       <h2 className="sr-only">Accounts</h2>
       <Account
