@@ -5,11 +5,12 @@ import { setOnEdition } from "../../redux/reducers/editionMode.js";
 import Account from "../../components/Account/Account";
 import EditButton from "../../components/EditButton/EditButton";
 
+// Placez toutes les importations en haut du fichier
+
 export default function User() {
   const token = useSelector((state) => state.userAuth.token);
   const profile = useSelector((state) => state.profile);
   const isEditing = useSelector((state) => state.editionMode.isOnEdition);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,15 +34,29 @@ export default function User() {
     fetchDataUser();
   }, [token]);
 
+  const handleInputChange = (e) => {
+    // Gérez les changements de valeur des champs du formulaire si nécessaire
+  };
+
   return (
     <main className={`main ${isEditing ? "" : "bg-dark"}`}>
-      <div className="header">
-        <h1>
-          Welcome back
-          <br />
-          {profile.firstName + " " + profile.lastName + "!"}
-        </h1>
-        <EditButton />
+      <div className={`header ${isEditing ? "editing-header" : ""}`}>
+        {isEditing ? (
+          // En mode édition, affichez les champs du formulaire
+          <>
+            <EditButton />
+          </>
+        ) : (
+          // En mode normal, affichez le message de bienvenue
+          <>
+            <h1>
+              Welcome back
+              <br />
+              {profile.firstName + " " + profile.lastName + "!"}
+            </h1>
+            <EditButton /> {/* Bouton toujours affiché */}
+          </>
+        )}
       </div>
       <h2 className="sr-only">Accounts</h2>
       <Account

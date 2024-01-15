@@ -7,10 +7,11 @@ import logo from "../../assets/img/argentBankLogo.png";
 export default function Header() {
   const token = useSelector((state) => state.userAuth.token);
   const profile = useSelector((state) => state.profile);
+  const isEditing = useSelector((state) => state.editionMode.isOnEdition); // Ajout de la variable isEditing
   const dispatch = useDispatch();
 
   return (
-    <header>
+    <header className={isEditing ? "edit-mode-header" : ""}>
       <nav className="main-nav">
         <Link className="main-nav-logo" to="./">
           <img
@@ -20,14 +21,17 @@ export default function Header() {
           />
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
-        <div>
+        <div className={`div-items ${isEditing ? "edit-mode" : ""}`}>
           {token && (
-            <Link className="main-nav-item" to="./user">
+            <Link
+              className={`main-nav-item ${isEditing ? "edit-mode" : ""}`}
+              to="./user"
+            >
               {profile.userName}
             </Link>
           )}
           <Link
-            className="main-nav-item"
+            className={`main-nav-item ${isEditing ? "edit-mode" : ""}`}
             to={token ? "./" : "./sign-in/"}
             onClick={() => {
               if (token) {
@@ -36,14 +40,16 @@ export default function Header() {
               }
             }}
           >
-            <i className="fa fa-user-circle"></i>
+            <i
+              className={`fa fa-user-circle ${isEditing ? "edit-mode" : ""}`}
+            ></i>
+            <i
+              className={`fa fa-cog edit-mode-roue ${
+                isEditing ? "edit-mode" : ""
+              }`}
+            ></i>
             {token ? " Sign Out" : " Sign In"}
           </Link>
-          {!token && (
-            <Link className="main-nav-item" to="./sign-up">
-              Sign Up
-            </Link>
-          )}
         </div>
       </nav>
     </header>

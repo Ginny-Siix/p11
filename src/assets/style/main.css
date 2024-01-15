@@ -283,6 +283,89 @@ body {
   color: #fff;
 }
 
+.div-items.edit-mode {
+  display: flex;
+}
+
+.main-nav a.edit-mode {
+  color: #14e921;
+  display: flex;
+  gap: 20px;
+}
+
+.fa.edit-mode {
+  font-size: 30px;
+}
+
+.edit-mode-roue {
+  display: none;
+}
+
+.edit-mode .edit-mode-roue {
+  /* // Propriétés de style spécifiques en mode édition */
+  display: inline-block;
+  /* // Affiche le logo en mode édition */
+}
+
+.edit-mode-error {
+  color: red;
+}
+
+.account.clicked {
+  background-color: grey;
+}
+
+.white-text {
+  color: white;
+}
+
+.editing-header {
+  color: #12002b;
+}
+
+.edit-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* .edit-form-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+} */
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-left: 25px;
+}
+
+.save-button,
+.cancel-button {
+  padding: 11px 40px;
+  background-color: #00bc77;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.save-button:hover,
+.cancel-button:hover {
+  background-color: #007d4c;
+}
+
 @media (min-width: 720px) {
   .account {
     flex-direction: row;
