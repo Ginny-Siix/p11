@@ -101,6 +101,105 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+  /transactions/{accountId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: All transactions by account
+      description: Return all transactions of an account by current month
+      parameters:
+        - in: path
+          name: accountId
+          description: accepts an id from an existing account
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses: 
+        '200':
+          description: Return an array of all transactions
+          schema:
+            $ref: '#/definitions/TransactionsResponse'
+        '400':
+          description: Invalids path params
+        '401':
+          description: You must be authenticated
+        '403':
+          description: Not allowed to get transactions
+        '404':
+          description: Account id not found
+        '500':
+          description: Internal server error
+  /transaction/{transactionId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: One specific transaction
+      description: return one transaction by its id
+      parameters:
+        - in: path
+          name: transactionId
+          description: accepts an id from an existing transaction
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses: 
+        '200':
+          description: Return an object of a transaction
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalids path params
+        '401':
+          description: You must be authenticated
+        '403':
+          description: Not allowed to get transaction
+        '404':
+          description: Transaction id not found
+        '500':
+          description: Internal server error
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Modify a specific transaction
+      description: modify a specific transaction
+      parameters:
+        - in: path
+          name: transactionId
+          description: accepts an id from an existing transaction
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: accepts an object with note or category values
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionModification'
+      produces:
+        - application/json
+      responses: 
+        '200':
+          description: Return an object of a transaction
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalids path params or body values
+        '401':
+          description: You must be authenticated
+        '403':
+          description: Not allowed to modify transaction
+        '404':
+          description: Transaction id not found
+        '500':
+          description: Internal server error
+
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -156,3 +255,59 @@ definitions:
     properties:
       userName:
         type: string
+  TransactionsResponse:
+    type: array
+    items: 
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+        amount:
+          type: integer
+        description:
+          type: string
+        balance:
+          type: integer
+        transaction-type:
+          type: string
+        note:
+          type: string
+        category:
+          type: string
+        userId:
+          type: string
+        accountId:
+          type: string
+  TransactionResponse:
+    type: object
+    properties:
+      id:
+        type: string
+      date:
+        type: string
+      amount:
+        type: integer
+      description:
+        type: string
+      balance:
+        type: integer
+      transaction-type:
+        type: string
+      note:
+        type: string
+      category:
+        type: string
+      userId:
+        type: string
+      accountId:
+        type: string
+  TransactionModification:
+    type: object
+    properties:
+      note:
+        type: string
+      category:
+        type: string
+          

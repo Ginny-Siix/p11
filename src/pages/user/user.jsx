@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setGetProfile } from "../../redux/reducers/profileSlice";
+import { setOnEdition } from "../../redux/reducers/editionMode.js";
 import Account from "../../components/Account/Account";
 import EditButton from "../../components/EditButton/EditButton";
 
 export default function User() {
   const token = useSelector((state) => state.userAuth.token);
   const profile = useSelector((state) => state.profile);
-  const [isEditing, setIsEditing] = useState(false);
+  const isEditing = useSelector((state) => state.editionMode.isOnEdition);
 
   const dispatch = useDispatch();
 
@@ -40,7 +41,7 @@ export default function User() {
           <br />
           {profile.firstName + " " + profile.lastName + "!"}
         </h1>
-        <EditButton isEditing={isEditing} setIsEditing={setIsEditing} />
+        <EditButton />
       </div>
       <h2 className="sr-only">Accounts</h2>
       <Account

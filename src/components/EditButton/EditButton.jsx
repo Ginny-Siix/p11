@@ -1,16 +1,21 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setEditProfile } from "../../redux/reducers/profileSlice";
+import { setOnEdition } from "../../redux/reducers/editionMode.js";
+
 import TextInput from "../TextInput/Textinput";
 import Button from "../Button/Button";
 
-export default function EditButton({ isEditing, setIsEditing }) {
+export default function EditButton() {
   const token = useSelector((state) => state.userAuth.token);
   const profile = useSelector((state) => state.profile);
   const [newUserName, setNewUserName] = useState(profile.userName);
+  const isEditing = useSelector((state) => state.editionMode.isOnEdition);
   const [error, setError] = useState("");
 
   const dispatch = useDispatch();
+
+  console.log(isEditing);
 
   useEffect(() => {
     setNewUserName(profile.userName);
@@ -66,7 +71,10 @@ export default function EditButton({ isEditing, setIsEditing }) {
           </Button>
         </div>
       ) : (
-        <Button className="edit-button" onClick={() => setIsEditing(true)}>
+        <Button
+          className="edit-button"
+          onClick={() => dispatch(setOnEdition(true))}
+        >
           Edit UserName
         </Button>
       )}
