@@ -30,7 +30,23 @@ export default function Header() {
               {profile.userName}
             </Link>
           )}
+          <Link className={`main-nav-item ${isEditing ? "edit-mode" : ""}`}>
+            <i
+              className={`fa fa-user-circle ${isEditing ? "edit-mode" : ""}`}
+            ></i>
+          </Link>
           <Link
+            to="#"
+            className={`main-nav-item ${isEditing ? "edit-mode" : ""}`}
+          >
+            <i
+              className={`fa fa-cog edit-mode-roue ${
+                isEditing ? "edit-mode" : ""
+              }`}
+            ></i>
+          </Link>
+          <Link
+            to="#"
             className={`main-nav-item ${isEditing ? "edit-mode" : ""}`}
             to={token ? "./" : "./sign-in/"}
             onClick={() => {
@@ -40,14 +56,6 @@ export default function Header() {
               }
             }}
           >
-            <i
-              className={`fa fa-user-circle ${isEditing ? "edit-mode" : ""}`}
-            ></i>
-            <i
-              className={`fa fa-cog edit-mode-roue ${
-                isEditing ? "edit-mode" : ""
-              }`}
-            ></i>
             {token ? " Sign Out" : " Sign In"}
           </Link>
         </div>

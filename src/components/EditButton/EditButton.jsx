@@ -12,6 +12,9 @@ export default function EditButton() {
 
   useEffect(() => {
     setNewUserName(profile.userName);
+    return () => {
+      dispatch(setOnEdition(false));
+    };
   }, [profile.userName]);
 
   const editUserName = async (e) => {
@@ -50,22 +53,34 @@ export default function EditButton() {
       {isEditing && (
         <div className="edit-form-container">
           <h2>Edit user info</h2>
-          <label htmlFor="newUserName">User name:</label>
-          <input
-            type="text"
-            id="newUserName"
-            value={newUserName}
-            onChange={(e) => setNewUserName(e.target.value)}
-          />
-          <label htmlFor="firstName">First name:</label>
-          <input
-            type="text"
-            id="firstName"
-            value={profile.firstName}
-            disabled
-          />
-          <label htmlFor="lastName">Last name:</label>
-          <input type="text" id="lastName" value={profile.lastName} disabled />
+          <div className="inline-form">
+            <label htmlFor="newUserName">User name:</label>
+            <input
+              type="text"
+              id="newUserName"
+              value={newUserName}
+              onChange={(e) => setNewUserName(e.target.value)}
+            />
+          </div>
+          <div className="inline-form">
+            <label htmlFor="firstName">First name:</label>
+            <input
+              type="text"
+              id="firstName"
+              value={profile.firstName}
+              disabled
+            />
+          </div>
+          <div className="inline-form">
+            <label htmlFor="lastName">Last name:</label>
+            <input
+              type="text"
+              id="lastName"
+              className="inline-form--input"
+              value={profile.lastName}
+              disabled
+            />
+          </div>
           <div className="buttons-container">
             <button
               type="submit"

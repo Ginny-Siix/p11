@@ -285,10 +285,12 @@ body {
 
 .div-items.edit-mode {
   display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .main-nav a.edit-mode {
-  color: #14e921;
+  color: #42b983;
   display: flex;
   gap: 20px;
 }
@@ -364,6 +366,17 @@ input {
 .save-button:hover,
 .cancel-button:hover {
   background-color: #007d4c;
+}
+
+.inline-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    width: 50%;
+  }
 }
 
 @media (min-width: 720px) {

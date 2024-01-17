@@ -41,22 +41,16 @@ export default function User() {
   return (
     <main className={`main ${isEditing ? "" : "bg-dark"}`}>
       <div className={`header ${isEditing ? "editing-header" : ""}`}>
-        {isEditing ? (
-          // En mode édition, affichez les champs du formulaire
-          <>
-            <EditButton />
-          </>
-        ) : (
-          // En mode normal, affichez le message de bienvenue
+        {!isEditing && (
           <>
             <h1>
               Welcome back
               <br />
               {profile.firstName + " " + profile.lastName + "!"}
             </h1>
-            <EditButton /> {/* Bouton toujours affiché */}
           </>
         )}
+        <EditButton />
       </div>
       <h2 className="sr-only">Accounts</h2>
       <Account
